@@ -1,33 +1,115 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>Train Schedules</title>
+	<title>Train Scheduler</title>
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+	<!-- Bootswatch Styling -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css">
 
-	<meta name="google-signin-client_id" content="167602757568-k6027cugtilquc0nh7oal29icsbs44ov.apps.googleusercontent.com">
-	<meta name="google-signin-cookiepolicy" content="single_host_origin">
-	<meta name="google-signin-scope" content="profile email">
-	<script src="https://apis.google.com/js/platform.js" async defer></script>"
+	<!--CSS Icons -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">	
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+
+	<!-- Moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
-
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="jumbotron text-center">
+			<i class="fa fa-5x fa-train"></i>
+			<h1>Coding Transit</h1>
+			<h3>Train Scheduler</h3>
+			<h5>Today is <span id="current-status"></span></h5>
+		</div>
+	</div>
 
-			<h1>Schedule That Train<br/><small class="current-time"></h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-3">
+			<!-- <div class="container"> -->
+			<div class="panel-group">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Add Train</div>
+					<form>
+						<div class="container-fluid">
+							<div class="form-group">
+								<br>
+								<label for="train-name">Train name</label>
+								<input type="text" class="form-control" id="train-name" placeholder="Green line">
+							</div>
+							<div class="form-group">
+								<label for="destination">Destination</label>
+								<input type="text" class="form-control" id="destination" placeholder="Lower Greenville">
+							</div>
+							<div class="form-group">
+								<label for="train-time">First train time (HH:mm, AM/PM)</label>
+								<input type="time" class="form-control" id="train-time" placeholder="14:45">
+							</div>
+							<div class="form-group">
+								<label for="frequency">
+								Frequency (mins)</label>
+								<input type="text" class="form-control" id="frequency" placeholder="15">
+							</div>
+							<button class="btn btn-primary" id="add-train" type="submit">Submit</button>
+							<br><br>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- </div> -->
+		</div>
 
-				<button class="text-center btn btn-lg signIn">Sign In With Google To See Schedule</button>
+		<div class="col-md-9">
+			<div class="container-fluid">
+				<!-- <div class="panel-group"> -->
+					<div class="panel panel-primary">
+						<div class="panel-heading">Current Train Schedule (25 latest entries)
+						<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-refresh"></span></button></div> 
+							<div class="panel-body">
+								<div class="table-responsive">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th><strong>Train name</strong></th>
+												<th><strong>Destination</strong></th>
+												<th><strong>Frequency (min)</strong></th>
+												<th><strong>Next arrival</strong></th>
+												<th><strong>Minutes away</strong></th>
+												<!-- <th><strong>Update</strong></th> -->
+											</tr>
+										</thead>
+										<tbody id="new-train">
+											<!-- <tr> -->
+											<!-- <td>i.e. Red line</td>
+											<td>Broadway</td>
+											<td>15</td>
+											<td>16:45</td>
+											<td>12</td>
+										</tr> -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				<!-- </div> -->
+			</div>
+		</div>
+	</div>
+</div>
+	
 
+	
 
+	
 
-
-		</div>		
-
-				
-		<script type="text/javascript" src="assets/javascript/logic.js"></script>
+	<script src="assets/javascript/app.js"></script>
 </body>
-
 </html>
