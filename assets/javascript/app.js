@@ -1,13 +1,15 @@
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyB2BJc8gRryhTrZ7LpeMC02ptCSeiRdxTI",
-    authDomain: "train-scheduler-5e5c8.firebaseapp.com",
-    databaseURL: "https://train-scheduler-5e5c8.firebaseio.com",
-    projectId: "train-scheduler-5e5c8",
-    storageBucket: "train-scheduler-5e5c8.appspot.com",
-    messagingSenderId: "660863966122"
-  };
-  firebase.initializeApp(config);
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyB2BJc8gRryhTrZ7LpeMC02ptCSeiRdxTI",
+  authDomain: "train-scheduler-5e5c8.firebaseapp.com",
+  databaseURL: "https://train-scheduler-5e5c8.firebaseio.com",
+  projectId: "train-scheduler-5e5c8",
+  storageBucket: "train-scheduler-5e5c8.appspot.com",
+  messagingSenderId: "660863966122"
+};
+firebase.initializeApp(config);
+
+var database = firebase.database();
 
 // Initial Values
 var trainName = "";
@@ -81,7 +83,6 @@ $("#add-train").on("click", function() {
     nextArrival: nextArrival,
     dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
-  
 
   // Empty text input
   $("#train-name").val("");
@@ -153,8 +154,3 @@ $("#add-train").on("click", function() {
 
 
 
-
-// References:
-// In class activites: 
-// RecentUser_withAllUsers.html
-// Train Example
